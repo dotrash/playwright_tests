@@ -1,7 +1,7 @@
 pipeline {
    agent { docker { image 'mcr.microsoft.com/playwright:focal' } }
    tools {
-       jdk 'jdk_1.8.0_151'
+       jdk 'jdk-11.0.1'
      }
    stages {
       stage('install dependencies') {
