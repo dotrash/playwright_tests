@@ -4,17 +4,16 @@ pipeline {
       stage('install dependencies') {
          steps {
             sh 'npm install'
-            sh 'apt install default-jre'
          }
       }
       stage('run tests') {
         steps {
-            sh 'npx playwright test --reporter=line,allure-playwright'
+            sh 'npx playwright test --reporter=line,html'
         }
       }
-      stage('generate allure report') {
+      stage('generate html report') {
         steps {
-            sh 'npx allure generate ./allure-results --clean'
+            sh 'npx playwright show-report'
         }
       }
       stage('open allure report') {
