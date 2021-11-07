@@ -13,12 +13,12 @@ pipeline {
       }
       stage('generate allure report') {
         steps {
-            sh 'allure generate ./allure-results --clean'
+            sh 'npx allure generate ./allure-results --clean'
         }
       }
       stage('open allure report') {
         steps {
-            sh 'allure open ./allure-report'
+            sh 'npx allure open ./allure-report'
         }
       }
    }
