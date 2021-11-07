@@ -7,19 +7,9 @@ pipeline {
          }
       }
       stage('run tests') {
-        steps {
-            sh 'npx playwright test --reporter=line,html'
-        }
-      }
-      stage('generate html report') {
-        steps {
-            sh 'npx playwright show-report'
-        }
-      }
-      stage('open allure report') {
-        steps {
-            sh 'npx allure open ./allure-report'
-        }
+         steps {
+            sh 'npm test'
+         }
       }
    }
 }
