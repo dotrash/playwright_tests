@@ -1,11 +1,19 @@
 pipeline {
    agent { docker { image 'mcr.microsoft.com/playwright:focal' } }
    stages {
-      stage('e2e-tests') {
+      stage('install dependencies') {
          steps {
             sh 'npm install'
-            sh 'npm run test'
          }
+      }
+      stage('run tests') {
+        sh 'npx playwright test --reporter=line,allure-playwright'
+      }
+      stage('generate allure report') {
+        sh 'allure generate ./allure-results --clean'
+      }
+      stage('open allure report') {
+        sh 'allure open ./allure-report'
       }
    }
 }
