@@ -1,0 +1,10 @@
+{
+  "name": "playwright_tests_github",
+  "version": "1.0.0",
+  "dependencies": {
+    "playwright": "^1.16.3",
+    "@playwright/test": "^1.16.3",
+    "allure-playwright": "^2.0.0-beta.14",
+    "allure-commandline": "^2.13.8"
+  }
+}
