@@ -4,7 +4,7 @@ pipeline {
       stage('install dependencies') {
          steps {
             sh 'npm install'
-            sh 'sudo apt install default-jre'
+            sh 'apt install default-jre'
          }
       }
       stage('run tests') {
