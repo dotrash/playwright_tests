@@ -7,13 +7,19 @@ pipeline {
          }
       }
       stage('run tests') {
-        sh 'npx playwright test --reporter=line,allure-playwright'
+        steps {
+            sh 'npx playwright test --reporter=line,allure-playwright'
+        }
       }
       stage('generate allure report') {
-        sh 'allure generate ./allure-results --clean'
+        steps {
+            sh 'allure generate ./allure-results --clean'
+        }
       }
       stage('open allure report') {
-        sh 'allure open ./allure-report'
+        steps {
+            sh 'allure open ./allure-report'
+        }
       }
    }
 }
